@@ -23,6 +23,8 @@ public class BasePage {
     public WebElement passW;
     @FindBy(how = How.XPATH, using = "//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']")
     public WebElement btnLogin;
+    @FindBy(how = How.XPATH, using = "//i[@class='oxd-icon bi-list oxd-topbar-header-hamburger']")
+    public WebElement navigation;
 
     public BasePage(WebDriver driver) throws Exception{
         edriver= new ChromeDriver();

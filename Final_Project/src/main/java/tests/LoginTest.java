@@ -21,29 +21,23 @@ public class LoginTest {
     @Test
     public void LoginWithInvalidcredentials() throws  Exception{
         LoginPage loginPage = new LoginPage();
-
-        loginPage.enterText(loginPage.userName, "Admin");
-        loginPage.enterText(loginPage.passW, "admin123");
+        loginPage.enterText(loginPage.userName, "Admin1");
+        loginPage.enterText(loginPage.passW, "admin1234");
         loginPage.Click(loginPage.btnLogin);
         try{
-
-            Assert.assertNotEquals(dataField.getData(1,0),"Admin1");
-            Assert.assertNotEquals(dataField.getData(1,1),"admni456");
-            System.out.println("Username is not Invalidcredentials");
-            System.out.printf("Password is not Invalidcredentials");
-
+            Assert.assertNotEquals("Username is not Invalidcredentials",dataField.getData(1,0),"Admin1");
+            Assert.assertNotEquals("Password is not Invalidcredentials",dataField.getData(1,1),"admin1234");
         }
         catch (Exception e)
         {
             System.out.printf("Username is Invalid");
         }
-
     }
     @Test
     public void LoginWithEmtyField() throws Exception{
-        LoginPage loginPage = new LoginPage();
-        loginPage.enterText(loginPage.userName, "");
-        loginPage.enterText(loginPage.passW, "");
+        LoginPage loginPage  = new LoginPage();
+        dataField.getData(1,0);
+        dataField.getData(1,1);
         loginPage.Click(loginPage.btnLogin);
         try {
             Assert.assertNotEquals(dataField.getData(1,0),loginPage.userName.getText());
