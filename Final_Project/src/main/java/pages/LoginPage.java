@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     public WebElement userName;
 
     @FindBy(how = How.XPATH, using = "//input[@name='password']")
-    public WebElement passW;
+    public static WebElement passW;
     @FindBy(how = How.XPATH, using = "//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']")
     public WebElement btnLogin;
 
