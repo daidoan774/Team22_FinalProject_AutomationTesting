@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class BasePage {
     public static WebDriver edriver;
@@ -19,7 +21,7 @@ public class BasePage {
     public BasePage(WebDriver driver) throws Exception{
         edriver= new ChromeDriver();
         PageFactory.initElements(edriver,this);
-        ewait = new WebDriverWait(edriver, Duration.ofSeconds(5));
+        ewait = new WebDriverWait(edriver, Duration.ofSeconds(20));
         edriver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
@@ -46,13 +48,16 @@ public class BasePage {
 
     public void enterText(WebElement element, String text) {
         waitUntilElementVisible(element);
-        if (!element.getAttribute("value").isEmpty()) {
+        String value = element.getDomProperty("_value");
+        while (!value.isEmpty()) {
             element.clear();
             element.sendKeys(text);
-        } else {
+            break;
+        }
             element.click();
             element.sendKeys(text);
-        }
+
     }
+
 
 }
