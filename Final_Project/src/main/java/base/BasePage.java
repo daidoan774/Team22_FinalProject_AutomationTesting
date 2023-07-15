@@ -1,5 +1,6 @@
 package base;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,15 +50,13 @@ public class BasePage {
     public void enterText(WebElement element, String text) {
         waitUntilElementVisible(element);
         String value = element.getDomProperty("_value");
-        while (!value.isEmpty()) {
-            element.clear();
-            element.sendKeys(text);
-            break;
-        }
-            element.click();
-            element.sendKeys(text);
+        if (!value.isEmpty()) {
 
+            element.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
+        }
+        element.sendKeys(text);
     }
+
 
 
 }

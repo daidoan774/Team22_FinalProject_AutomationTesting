@@ -41,7 +41,7 @@ public class MyinfoPage extends BasePage {
     public WebElement otherId;
     @FindBy(how = How.XPATH, using = "//label[text()=\"Driver's License Number\"]/../following-sibling::div//input[@class='oxd-input oxd-input--active']")
     public WebElement driverLicenseNum;
-    @FindBy(how = How.XPATH, using = "//label[text()='License Expiry Date']/../following-sibling::div//div[@class=\"oxd-date-wrapper\"]//input[@placeholder=\"dd-mm-yyyy\"]")
+    @FindBy(how = How.XPATH, using = "//label[text()='License Expiry Date']/../following-sibling::div//div[@class=\"oxd-date-wrapper\"]//input[@placeholder=\"yyyy-mm-dd\"]")
     public WebElement licenseExp;
     @FindBy(how = How.XPATH, using = "//label[text()='SSN Number']/../following-sibling::div//input[@class='oxd-input oxd-input--active']")
     public WebElement SSNNum;
@@ -66,10 +66,8 @@ public class MyinfoPage extends BasePage {
     }
 
     public void login() throws Exception {
-        waitUntilElementVisible(userName);
-        enterText(userName, dataField.getData(1, 0));
-        enterText(passW, dataField.getData(1, 1));
-        waitUntilElementVisible(passW);
+        enterText(userName,"Admin");
+        enterText(passW,"admin123");
         Click(btnLogin);
     }
     public void getcaledar(WebElement element) throws Exception{
