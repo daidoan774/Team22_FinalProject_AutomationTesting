@@ -20,7 +20,7 @@ public class QuickLauchPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']")
     public WebElement btnLogin;
 
-    @FindBy(how = How.XPATH, using = "//button[@class='oxd-icon-button oxd-main-menu-button']")
+    @FindBy(how = How.XPATH, using = "//button[@class='oxd-icon-button orangehrm-quick-launch-icon'and @title ='Assign Leave']")
     public WebElement assignLeave;
 
     @FindBy(how = How.XPATH, using = "//button[@class='oxd-icon-button orangehrm-quick-launch-icon'and @title ='Leave List']")
